@@ -13,9 +13,9 @@ import { formatCurrency, formatDate } from '@/lib/utils'
 const API_URL = 'http://localhost:3001/api'
 
 const statusColors = {
-  'open': 'bg-blue-100 text-blue-800',
-  'in progress': 'bg-yellow-100 text-yellow-800',
-  'done': 'bg-green-100 text-green-800'
+  'open': 'bg-blue-500/20 text-blue-300 border border-blue-500/30',
+  'in progress': 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30',
+  'done': 'bg-green-500/20 text-green-300 border border-green-500/30'
 }
 
 const statusLabels = {
@@ -62,8 +62,8 @@ export default function ClientPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center">
-        <div className="text-lg text-muted-foreground">Ładowanie...</div>
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+        <div className="text-lg text-slate-400">Ładowanie...</div>
       </div>
     )
   }
@@ -73,7 +73,7 @@ export default function ClientPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="container mx-auto py-8 px-4">
         {/* Back Button */}
         <Link href="/">
@@ -100,13 +100,13 @@ export default function ClientPage() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-slate-50 p-4 rounded-lg">
-                <div className="text-sm text-slate-600 mb-1">Liczba projektów</div>
-                <div className="text-2xl font-bold">{client.projects.length}</div>
+              <div className="bg-slate-800/50 border border-slate-700 p-4 rounded-lg">
+                <div className="text-sm text-slate-400 mb-1">Liczba projektów</div>
+                <div className="text-2xl font-bold text-white">{client.projects.length}</div>
               </div>
-              <div className="bg-slate-50 p-4 rounded-lg">
-                <div className="text-sm text-slate-600 mb-1">Łączna wartość</div>
-                <div className="text-2xl font-bold">{formatCurrency(totalValue)}</div>
+              <div className="bg-slate-800/50 border border-slate-700 p-4 rounded-lg">
+                <div className="text-sm text-slate-400 mb-1">Łączna wartość</div>
+                <div className="text-2xl font-bold text-white">{formatCurrency(totalValue)}</div>
               </div>
             </div>
           </CardContent>
@@ -138,20 +138,20 @@ export default function ClientPage() {
                 {client.projects.map((project) => (
                   <div
                     key={project.id}
-                    className="border rounded-lg p-4 hover:bg-slate-50 transition-colors"
+                    className="border border-slate-700 rounded-lg p-4 hover:bg-slate-700/50 hover:border-blue-500/50 transition-all"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-semibold text-lg text-slate-900">
+                          <h3 className="font-semibold text-lg text-white">
                             {project.name}
                           </h3>
                           <Badge className={statusColors[project.status]}>
                             {statusLabels[project.status]}
                           </Badge>
                         </div>
-                        <div className="text-sm text-slate-600">
-                          Wartość: <span className="font-medium text-slate-900">
+                        <div className="text-sm text-slate-400">
+                          Wartość: <span className="font-medium text-white">
                             {formatCurrency(project.value)}
                           </span>
                         </div>

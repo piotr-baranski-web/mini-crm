@@ -50,12 +50,12 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="container mx-auto py-8 px-4">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">Mini CRM</h1>
-          <p className="text-slate-600">System zarządzania klientami i projektami</p>
+          <h1 className="text-4xl font-bold text-white mb-2">Mini CRM</h1>
+          <p className="text-slate-400">System zarządzania klientami i projektami</p>
         </div>
 
         {/* Summary Cards */}
@@ -130,22 +130,22 @@ export default function Home() {
                     href={`/client/${client.id}`}
                     className="block"
                   >
-                    <div className="border rounded-lg p-4 hover:bg-slate-50 transition-colors cursor-pointer">
+                    <div className="border border-slate-700 rounded-lg p-4 hover:bg-slate-700/50 hover:border-blue-500/50 transition-all cursor-pointer">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <h3 className="font-semibold text-lg text-slate-900">
+                          <h3 className="font-semibold text-lg text-white">
                             {client.name}
                           </h3>
-                          <p className="text-sm text-slate-600">{client.email}</p>
+                          <p className="text-sm text-slate-400">{client.email}</p>
                           <p className="text-xs text-slate-500 mt-1">
                             Data pozyskania: {formatDate(client.acquisitionDate)}
                           </p>
                         </div>
                         <div className="text-right">
-                          <div className="text-sm font-medium text-slate-900">
+                          <div className="text-sm font-medium text-white">
                             {client.projects.length} {client.projects.length === 1 ? 'projekt' : 'projektów'}
                           </div>
-                          <div className="text-xs text-slate-600 mt-1">
+                          <div className="text-xs text-slate-400 mt-1">
                             {formatCurrency(
                               client.projects.reduce((sum, p) => sum + parseFloat(p.value || 0), 0)
                             )}
