@@ -1,24 +1,24 @@
 # Mini CRM
 
-System zarządzania klientami i projektami - zadanie rekrutacyjne dla stanowiska Web Developer.
+Aplikacja do zarządzania klientami i projektami - zadanie rekrutacyjne na stanowisko Web Developer.
 
-## 📋 Opis projektu
+## Opis
 
-Mini CRM to prosta aplikacja do zarządzania klientami i ich projektami. Aplikacja umożliwia:
-- Przeglądanie listy klientów
+Stworzyłem prostą aplikację CRM, która pozwala na:
+- Zarządzanie listą klientów
 - Dodawanie nowych klientów
-- Wyświetlanie szczegółów klienta wraz z listą jego projektów
-- Dodawanie projektów do klienta
-- Podsumowanie: łączna liczba projektów i suma wartości w PLN
+- Przeglądanie szczegółów każdego klienta
+- Dodawanie projektów do klientów
+- Podgląd podsumowania - ile mamy projektów i jaka jest ich łączna wartość
 
-## 🛠 Technologie
+## Stack technologiczny
 
-- **Frontend**: Next.js 14 (React)
-- **UI**: Tailwind CSS + shadcn/ui
-- **Backend**: Node.js + Express
-- **Przechowywanie danych**: Plik JSON
+- **Frontend**: Next.js 14 z React
+- **Styling**: Tailwind CSS + komponenty inspirowane shadcn/ui
+- **Backend**: Express (Node.js)
+- **Dane**: Plik JSON
 
-## 📦 Struktura projektu
+## Struktura projektu
 
 ```
 mini-crm/
@@ -39,144 +39,81 @@ mini-crm/
 └── package.json
 ```
 
-## 🚀 Instalacja i uruchomienie
+## Jak uruchomić
 
-### Wymagania
-- Node.js (wersja 18 lub wyższa)
-- npm lub yarn
+Wymagania: Node.js w wersji 18 lub nowszej.
 
-### Kroki instalacji
-
-1. Sklonuj repozytorium:
 ```bash
-git clone <url-repozytorium>
+# Sklonuj repo
+git clone https://github.com/piotr-baranski-web/mini-crm.git
 cd mini-crm
-```
 
-2. Zainstaluj zależności:
-```bash
+# Zainstaluj zależności
 npm install
-```
 
-3. Uruchom aplikację w trybie deweloperskim:
-```bash
+# Uruchom aplikację (frontend + backend)
 npm run dev
 ```
 
-To polecenie uruchomi jednocześnie:
-- Frontend Next.js na `http://localhost:3000`
-- Backend Express API na `http://localhost:3001`
+Aplikacja uruchomi się na:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:3001
 
-4. Otwórz przeglądarkę i przejdź do `http://localhost:3000`
+Możesz też uruchomić frontend i backend osobno używając `npm run dev:frontend` i `npm run dev:backend`.
 
-### Uruchamianie oddzielnie
+## API
 
-Możesz również uruchomić frontend i backend oddzielnie:
+Backend udostępnia kilka prostych endpointów:
 
-```bash
-# Terminal 1 - Frontend
-npm run dev:frontend
+- `GET /api/clients` - lista wszystkich klientów
+- `GET /api/clients/:id` - szczegóły konkretnego klienta
+- `POST /api/clients` - dodanie nowego klienta
+- `POST /api/clients/:id/projects` - dodanie projektu do klienta
+- `GET /api/summary` - podsumowanie (liczba projektów i suma wartości)
 
-# Terminal 2 - Backend
-npm run dev:backend
-```
+## Funkcjonalności
 
-## 📊 Modele danych
+**Strona główna:**
+- Lista klientów z podstawowymi informacjami
+- Karty z podsumowaniem (liczba klientów, projektów i łączna wartość)
+- Możliwość dodania nowego klienta przez modal
 
-### Klient
-```javascript
-{
-  id: string,
-  name: string,
-  email: string,
-  acquisitionDate: string, // Format: YYYY-MM-DD
-  projects: Project[]
-}
-```
+**Strona klienta:**
+- Szczegółowe dane klienta (nazwa, email, data pozyskania)
+- Lista wszystkich projektów z statusami i wartościami
+- Dodawanie nowych projektów
 
-### Projekt
-```javascript
-{
-  id: string,
-  name: string,
-  status: 'open' | 'in progress' | 'done',
-  value: number // Wartość w PLN
-}
-```
+**Ogólnie:**
+- Responsywny design działający na mobile i desktop
+- Dane zapisują się w pliku JSON i są trwałe
+- Formatowanie kwot w PLN i dat po polsku
+- Statusy projektów oznaczone kolorowymi badge'ami
 
-## 🔌 API Endpoints
+## Co zostało zrobione
 
-- `GET /api/clients` - Pobierz wszystkich klientów
-- `GET /api/clients/:id` - Pobierz szczegóły klienta
-- `POST /api/clients` - Dodaj nowego klienta
-- `POST /api/clients/:id/projects` - Dodaj projekt do klienta
-- `GET /api/summary` - Pobierz podsumowanie (liczba projektów, suma wartości)
+Zaimplementowałem wszystkie wymagane funkcje z zadania:
+- Lista klientów z możliwością dodania nowego
+- Szczegóły klienta wraz z listą projektów
+- Dodawanie projektów do klienta
+- Podsumowanie z liczbą projektów i sumą wartości w PLN
+- Trwałość danych (plik JSON)
 
-## ✨ Funkcje
+Dodatkowo zadbałem o:
+- Przyzwoity UI z Tailwind CSS
+- Responsywność
+- Walidację formularzy
+- Czytelną strukturę kodu
 
-### Strona główna
-- **Lista klientów**: Wyświetla wszystkich klientów z podstawowymi informacjami
-- **Podsumowanie**: Karty z:
-  - Liczbą klientów
-  - Łączną liczbą projektów
-  - Łączną wartością wszystkich projektów (PLN)
-- **Dodawanie klienta**: Dialog z formularzem do dodania nowego klienta
+## Co można by dodać w przyszłości
 
-### Strona szczegółów klienta
-- **Informacje o kliencie**: Nazwa, email, data pozyskania
-- **Statystyki**: Liczba projektów i łączna wartość
-- **Lista projektów**: Wszystkie projekty klienta z:
-  - Nazwą projektu
-  - Statusem (kolorowy badge)
-  - Wartością w PLN
-- **Dodawanie projektu**: Dialog z formularzem do dodania nowego projektu
-
-## 🎨 UI/UX
-
-- Responsywny design (mobile-first)
-- Czytelny i minimalistyczny interfejs
-- Kolorowe badge'e dla statusów projektów
-- Płynne przejścia i hover effects
-- Gradient background dla lepszego wyglądu
-
-## 💾 Trwałość danych
-
-Dane są przechowywane w pliku `server/data.json`. Przy pierwszym uruchomieniu serwer tworzy plik z przykładowymi danymi. Wszystkie zmiany (dodawanie klientów i projektów) są zapisywane do tego pliku i utrzymują się po restarcie aplikacji.
-
-## 📝 Git hygiene
-
-- Czytelna struktura commitów
-- `.gitignore` konfiguracja dla Node.js i Next.js
-- Modułowa struktura plików
-
-## 🔍 Co zostało zaimplementowane
-
-✅ Lista klientów z możliwością dodania nowego  
-✅ Szczegóły klienta z listą projektów  
-✅ Dodawanie projektów do klienta  
-✅ Podsumowanie: łączna liczba projektów i suma wartości (PLN)  
-✅ Trwałość danych (plik JSON)  
-✅ Responsywny UI z Tailwind CSS  
-✅ Komponenty UI (shadcn/ui inspired)  
-✅ Walidacja formularzy  
-✅ Formatowanie dat i kwot w PLN  
-
-## 🚀 Możliwe rozszerzenia
-
-- Edycja i usuwanie klientów/projektów
-- Filtrowanie i sortowanie
-- Wyszukiwanie klientów
-- Eksport danych do CSV/PDF
+Gdyby to był realny projekt, warto by rozważyć:
+- Edycję i usuwanie klientów/projektów
+- Filtry i wyszukiwarkę
 - Wykresy i statystyki
-- Autentykacja użytkowników
-- Migracja do bazy danych (PostgreSQL, MongoDB)
-- Testy jednostkowe i E2E
+- Bazę danych zamiast JSON
+- Testy
 
-## 👨‍💻 Autor
+---
 
-Projekt wykonany jako zadanie rekrutacyjne na stanowisko Web Developer (2025.10)
-
-## 📄 Licencja
-
-MIT
+Projekt wykonany jako zadanie rekrutacyjne (2025.10)
 
