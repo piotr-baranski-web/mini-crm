@@ -13,6 +13,13 @@
           "value": 30000
         }
       ]
+    },
+    {
+      "id": "1762621132664",
+      "name": "test",
+      "email": "test@test.pl",
+      "acquisitionDate": "2025-11-08",
+      "projects": []
     }
   ]
 }

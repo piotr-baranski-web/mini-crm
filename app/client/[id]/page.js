@@ -62,8 +62,8 @@ export default function ClientPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#003249] via-[#004d6b] to-[#003249] flex items-center justify-center">
-        <div className="text-lg text-slate-400">Ładowanie...</div>
+      <div className="min-h-screen bg-gradient-to-br from-[#18206F] via-[#17255A] to-[#18206F] flex items-center justify-center">
+        <div className="text-lg text-[#F5E2C8]">Ładowanie...</div>
       </div>
     )
   }
@@ -73,7 +73,7 @@ export default function ClientPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#003249] via-[#004d6b] to-[#003249]">
+    <div className="min-h-screen bg-gradient-to-br from-[#18206F] via-[#17255A] to-[#18206F]">
       <div className="container mx-auto py-8 px-4">
         {/* Back Button */}
         <Link href="/">
@@ -101,11 +101,11 @@ export default function ClientPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-slate-800/50 border border-slate-700 p-4 rounded-lg">
-                <div className="text-sm text-slate-400 mb-1">Liczba projektów</div>
+                <div className="text-sm text-[#F5E2C8]/70 mb-1">Liczba projektów</div>
                 <div className="text-2xl font-bold text-white">{client.projects.length}</div>
               </div>
               <div className="bg-slate-800/50 border border-slate-700 p-4 rounded-lg">
-                <div className="text-sm text-slate-400 mb-1">Łączna wartość</div>
+                <div className="text-sm text-[#F5E2C8]/70 mb-1">Łączna wartość</div>
                 <div className="text-2xl font-bold text-white">{formatCurrency(totalValue)}</div>
               </div>
             </div>

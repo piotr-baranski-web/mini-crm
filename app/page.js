@@ -50,12 +50,12 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#003249] via-[#004d6b] to-[#003249]">
+    <div className="min-h-screen bg-gradient-to-br from-[#18206F] via-[#17255A] to-[#18206F]">
       <div className="container mx-auto py-8 px-4">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-2">Mini CRM</h1>
-          <p className="text-slate-400">System zarządzania klientami i projektami</p>
+          <p className="text-[#F5E2C8]">System zarządzania klientami i projektami</p>
         </div>
 
         {/* Summary Cards */}
