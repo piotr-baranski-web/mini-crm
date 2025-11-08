@@ -62,7 +62,7 @@ export default function ClientPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-[#003249] via-[#004d6b] to-[#003249] flex items-center justify-center">
         <div className="text-lg text-slate-400">Ładowanie...</div>
       </div>
     )
@@ -73,7 +73,7 @@ export default function ClientPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-[#003249] via-[#004d6b] to-[#003249]">
       <div className="container mx-auto py-8 px-4">
         {/* Back Button */}
         <Link href="/">
