@@ -13,8 +13,8 @@ import { formatCurrency, formatDate } from '@/lib/utils'
 const API_URL = 'http://localhost:3001/api'
 
 const statusColors = {
-  'open': 'bg-blue-500/20 text-blue-300 border border-blue-500/30',
-  'in progress': 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30',
+  'open': 'bg-[#F5E2C8]/20 text-[#F5E2C8] border border-[#F5E2C8]/30',
+  'in progress': 'bg-[#D88373]/20 text-[#D88373] border border-[#D88373]/40',
   'done': 'bg-green-500/20 text-green-300 border border-green-500/30'
 }
 
@@ -138,7 +138,7 @@ export default function ClientPage() {
                 {client.projects.map((project) => (
                   <div
                     key={project.id}
-                    className="border border-slate-700 rounded-lg p-4 hover:bg-slate-700/50 hover:border-blue-500/50 transition-all"
+                    className="border border-slate-700 rounded-lg p-4 hover:bg-slate-700/50 hover:border-[#D88373]/50 transition-all"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -150,8 +150,8 @@ export default function ClientPage() {
                             {statusLabels[project.status]}
                           </Badge>
                         </div>
-                        <div className="text-sm text-slate-400">
-                          Wartość: <span className="font-medium text-white">
+                        <div className="text-sm text-[#F5E2C8]/70">
+                          Wartość: <span className="font-medium text-[#D88373]">
                             {formatCurrency(project.value)}
                           </span>
                         </div>

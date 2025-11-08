@@ -130,14 +130,14 @@ export default function Home() {
                     href={`/client/${client.id}`}
                     className="block"
                   >
-                    <div className="border border-slate-700 rounded-lg p-4 hover:bg-slate-700/50 hover:border-blue-500/50 transition-all cursor-pointer">
+                    <div className="border border-slate-700 rounded-lg p-4 hover:bg-slate-700/50 hover:border-[#D88373]/50 transition-all cursor-pointer">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
                           <h3 className="font-semibold text-lg text-white">
                             {client.name}
                           </h3>
-                          <p className="text-sm text-slate-400">{client.email}</p>
-                          <p className="text-xs text-slate-500 mt-1">
+                          <p className="text-sm text-[#F5E2C8]/70">{client.email}</p>
+                          <p className="text-xs text-[#F5E2C8]/50 mt-1">
                             Data pozyskania: {formatDate(client.acquisitionDate)}
                           </p>
                         </div>
@@ -145,7 +145,7 @@ export default function Home() {
                           <div className="text-sm font-medium text-white">
                             {client.projects.length} {client.projects.length === 1 ? 'projekt' : 'projektów'}
                           </div>
-                          <div className="text-xs text-slate-400 mt-1">
+                          <div className="text-xs text-[#D88373] mt-1">
                             {formatCurrency(
                               client.projects.reduce((sum, p) => sum + parseFloat(p.value || 0), 0)
                             )}
