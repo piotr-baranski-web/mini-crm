@@ -1,4 +1,18 @@
 {
-  "clients": []
+  "clients": [
+    {
+      "id": "1762618737220",
+      "name": "test",
+      "email": "test@test.pl",
+      "acquisitionDate": "2025-11-08",
+      "projects": [
+        {
+          "id": "1762618753074",
+          "name": "test",
+          "status": "done",
+          "value": 30000
+        }
+      ]
+    }
+  ]
 }
-
