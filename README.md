@@ -2,14 +2,14 @@
 
 Prosta aplikacja do zarządzania klientami i projektami.
 
-## Stack
+Stack
 
 - Next.js + React
 - Tailwind CSS + shadcn/ui
 - Express (Node.js)
 - JSON jako baza danych
 
-## Uruchomienie
+Uruchomienie
 
 ```bash
 npm install
@@ -18,8 +18,7 @@ npm run dev
 
 Aplikacja odpali się na http://localhost:3000
 
-## Co działa
-
+Działające elementy:
 - Lista klientów + dodawanie nowych
 - Szczegóły klienta z listą projektów
 - Dodawanie projektów do klienta
